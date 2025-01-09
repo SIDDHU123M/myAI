@@ -2,11 +2,11 @@ from flask import Flask, request, jsonify, render_template
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
-# Load the locally stored model
-MODEL_PATH = "./models/gpt-neo-3B"
-print(f"Loading model from {MODEL_PATH}...")
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-model = AutoModelForCausalLM.from_pretrained(MODEL_PATH)
+# Load model directly
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-neo-1.3B")
+model = AutoModelForCausalLM.from_pretrained("EleutherAI/gpt-neo-1.3B")
 
 # Initialize Flask app
 app = Flask(__name__)
