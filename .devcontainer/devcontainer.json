@@ -1,0 +1,22 @@
+{
+  "name": "AI Chatbot - GPT-Neo 3B",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-azuretools.vscode-docker"
+  ],
+  "forwardPorts": [5000],
+  "postCreateCommand": "pip install -r requirements.txt",
+  "remoteUser": "vscode",
+  "hostRequirements": {
+    "memory": "16GB",
+    "storage": "64GB",
+    "cpus": 4
+  }
+}
